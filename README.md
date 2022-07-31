@@ -49,4 +49,36 @@ Next, instruct Mbed to download the dependencies and prepare to build:
 
 `$ mbed deploy`
 
+### Modify Mbed Configuration
+
+By default, Mbed will build the project using C++ 98. However, TensorFlow Lite requires C++ 11. Run the following Python snippet to modify the Mbed configuration files so that it uses C++ 11. You can just type or paste it into the command line:
+
+`$ python3 modify.py`
+
+### Replication CMSIS_GCC.H
+
+Replication arm_math.h and cmsis_gcc.h to correct folder.
+
+`$ cd ~/Lab1/tensorflow/`
+
+`$ cp tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/DSP/Include/arm_math.h  tensorflow/lite/micro/tools/make/gen/mbed_cortex m4_default/prj/hello_world/mbed/mbed-os/cmsis/TARGET_CORTEX_M/arm_math.h`
+
+`$ cp tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/Core/Include/cmsis_gcc.h  tensorflow/lite/micro/tools/make/gen/mbed_cortex-m4_default/prj/hello_world/mbed/mbed-os/cmsis/TARGET_CORTEX_M/cmsis_gcc.h`
+
+
+### Compile 
+
+`$ cd tensorflow/lite/micro/tools/make/gen/mbed_cortex-m4_default/prj/hello_world/mbed`
+
+1. To compile, run:\
+`$ mbed compile -t GCC_ARM -m DISCO_H747I`
+
+2. This will produce a file named `mbed.bin` in `Lab1/tensorflow/BUILD/DISCO_H747I/GCC_ARM/mbed.bin`. To flash it to the board, copy the file to the volume mounted as a USB drive. For instance:\
+`$ cp /BUILD/DISCO_H747I/GCC_ARM/mbed.bin /media/<USER>/<BOARD_NAME>/`\
+If the volume complains about being full, disconnect and reconnect the board and flash to it again.
+
+
+
+
+
 
