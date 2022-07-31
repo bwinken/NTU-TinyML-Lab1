@@ -7,8 +7,10 @@ In LAB1, we deploy a pretrained sine regression model onto STM32H747. The input 
 - python==3.9
 - gcc-arm-none-eabi==9.2.1
 
-Install the first three by pip. The last one could be installed by:
+1. Install [mbed-cli](https://os.mbed.com/docs/mbed-os/v6.15/build-tools/install-and-set-up.html) by pip :\
+`$ pip install mbed-cli`
 
+2. Install [GCC_ARM](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/downloads) by :\
 `$ apt-get install gcc-arm-none-eabi`
 
 ### Git Pack Download
