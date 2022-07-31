@@ -57,7 +57,7 @@ Next, instruct Mbed to download the dependencies and prepare to build:
 
 ### Modify Mbed Configuration
 
-By default, Mbed will build the project using C++ 98. However, TensorFlow Lite requires C++ 11. Run the following Python snippet to modify the Mbed configuration files so that it uses C++ 11. You can just type or paste it into the command line:
+By default, Mbed will build the project using C++ 98. However, TensorFlow Lite requires C++ 11. Run the following Python snippet to modify the Mbed configuration files so that it uses C++ 11. You should put `modify.py` in `tensorflow/lite/micro/tools/make/gen/mbed_cortex-m4_default/prj/hello_world/mbed` and enter the command:
 
 `$ python3 modify.py`
 
