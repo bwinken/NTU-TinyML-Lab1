@@ -14,7 +14,7 @@ In LAB1, we deploy a pretrained sine regression model onto STM32H747. The input 
 `$ apt-get install gcc-arm-none-eabi`
 
 ### Git Pack Download
-Downloaded file would be stored in folder named $Lab1$
+Downloaded file would be stored in folder named `Lab1`
 
 `$ mkdir Lab1 && cd "$_"`
 
@@ -28,14 +28,18 @@ With this command, some necessary libraries and tools will be downloaded. Then t
     
 `$ make -f tensorflow/lite/micro/tools/make/Makefile test_hello_world_test`
 
+<!--
 ![](https://i.imgur.com/56qXKtP.png)
+-->
 
 ### Fetch CMSIS Pack
 `$ make -f tensorflow/lite/micro/tools/make/Makefile TARGET=mbed OPTIMIZED_KERNEL_DIR=cmsis_nn generate_hello_world_mbed_project`
 
 Mbed requires source files to be structured in a certain way. The TensorFlow Lite for Microcontrollers Makefile knows how to do this for us, and can generate a directory suitable for Mbed. The building process should be like this:
 
+<!--
 ![](https://i.imgur.com/tENEHNF.png)
+-->
 The directory below contains all of the example’s dependencies structured in the correct way for Mbed to be able to build it.
 
 `$ cd tensorflow/lite/micro/tools/make/gen/mbed_cortex-m4_default/prj/hello_world/mbed`
