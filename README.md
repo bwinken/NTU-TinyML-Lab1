@@ -67,7 +67,9 @@ By default, Mbed will build the project using C++ 98. However, TensorFlow Lite r
 
 Replication arm_math.h and cmsis_gcc.h to correct folder.
 
-`$ cd ~/Lab1/tensorflow/`
+```
+$ cd ~/Lab1/tensorflow/
+```
 
 ```
 $ cp tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/DSP/Include/arm_math.h  tensorflow/lite/micro/tools/make/gen/mbed_cortex m4_default/prj/hello_world/mbed/mbed-os/cmsis/TARGET_CORTEX_M/arm_math.h
