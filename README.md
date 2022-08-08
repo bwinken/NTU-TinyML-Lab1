@@ -93,7 +93,7 @@ $ cp tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/Core/Include/cmsis_g
 `$ cp /BUILD/DISCO_H747I/GCC_ARM/mbed.bin /media/<USER>/<BOARD_NAME>/`\
 If the volume complains about being full, disconnect and reconnect the board and flash to it again.
 
-
+## (Optional) Control LCD on STM32H747I
 
 
 
