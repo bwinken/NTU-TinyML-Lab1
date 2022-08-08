@@ -94,7 +94,19 @@ $ cp tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/Core/Include/cmsis_g
 If the volume complains about being full, disconnect and reconnect the board and flash to it again.
 
 ## (Optional) Control LCD on STM32H747I
+1. Put `BSP` in
+    ```
+    ~/Lab1/tensorflow/tensorflow/lite/micro/tools/make/gen/mbed_cortex-m4_default/prj/hello_world/mbed/
+    
+2. Put `LCD_DISCO_F746NG.cpp` and `LCD_DISCO_F746NG.h`in
+    ```
+    ~/Lab1/tensorflow/tensorflow/lite/micro/tools/make/gen/mbed_cortex-m4_default/prj/hello_world/mbed/tensorflow/lite/micro/examples/hello_world/
+    ```
 
+3. Replace 'output_handler.cc` in
+     ```
+    ~/Lab1/tensorflow/tensorflow/lite/micro/tools/make/gen/mbed_cortex-m4_default/prj/hello_world/mbed/tensorflow/lite/micro/examples/hello_world/output_handler.cc
+    ```
 
 
 
