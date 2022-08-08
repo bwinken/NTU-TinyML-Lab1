@@ -1,17 +1,17 @@
 # LAB 1: Deploy Program onto STM32
-### Description
+## Description
 In LAB1, we deploy a pretrained sine regression model onto STM32H747. The input of the system is an x value, and the output is computed value of $\sin(x)$.
 
-### Environment Setup
+## Environment Setup
 - mbed-cli==1.10.5
 - python==3.9
 - gcc-arm-none-eabi==9.2.1
 
 1. Install [mbed-cli](https://os.mbed.com/docs/mbed-os/v6.15/build-tools/install-and-set-up.html) by pip :\
-`$ pip install mbed-cli`
+`$ python3 -m pip install mbed-cli`
 
 2. Install [GCC_ARM](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/downloads) by :\
-`$ apt-get install gcc-arm-none-eabi`
+`$ sudo apt-get install gcc-arm-none-eabi`
 
 ### Git Pack Download
 Downloaded file would be stored in folder named `Lab1`
@@ -23,7 +23,7 @@ Downloaded file would be stored in folder named `Lab1`
 `$ cd tensorflow`
 
 
-### Build on PC
+## Build on PC
 With this command, some necessary libraries and tools will be downloaded. Then test file along with all of its dependencies will be built. Makefile has instructed the C++ compiler to build the code and create a binary, which it will then run. The result should be like this:
     
 `$ make -f tensorflow/lite/micro/tools/make/Makefile test_hello_world_test`
@@ -32,7 +32,7 @@ With this command, some necessary libraries and tools will be downloaded. Then t
 ![](https://i.imgur.com/56qXKtP.png)
 -->
 
-### Fetch CMSIS Pack
+## Deploy on STM32H747
 `$ make -f tensorflow/lite/micro/tools/make/Makefile TARGET=mbed OPTIMIZED_KERNEL_DIR=cmsis_nn generate_hello_world_mbed_project`
 
 Mbed requires source files to be structured in a certain way. The TensorFlow Lite for Microcontrollers Makefile knows how to do this for us, and can generate a directory suitable for Mbed. The building process should be like this:
@@ -55,13 +55,15 @@ Next, instruct Mbed to download the dependencies and prepare to build:
 
 `$ mbed deploy`
 
+<!--
 ### Modify Mbed Configuration
 
 By default, Mbed will build the project using C++ 98. However, TensorFlow Lite requires C++ 11. Run the following Python snippet to modify the Mbed configuration files so that it uses C++ 11. You should put `modify.py` in `tensorflow/lite/micro/tools/make/gen/mbed_cortex-m4_default/prj/hello_world/mbed` and enter the command:
 
 `$ python3 modify.py`
+-->
 
-### Replication CMSIS_GCC.H
+### Modify header files
 
 Replication arm_math.h and cmsis_gcc.h to correct folder.
 
@@ -77,7 +79,9 @@ Replication arm_math.h and cmsis_gcc.h to correct folder.
 `$ cd tensorflow/lite/micro/tools/make/gen/mbed_cortex-m4_default/prj/hello_world/mbed`
 
 1. To compile, run:\
-`$ mbed compile -t GCC_ARM -m DISCO_H747I`
+`$ mbed toolchain GCC_ARM`
+`$ mbed target DISCO_H747I`
+`$ mbed compile -c`
 
 2. This will produce a file named `mbed.bin` in `Lab1/tensorflow/BUILD/DISCO_H747I/GCC_ARM/mbed.bin`. To flash it to the board, copy the file to the volume mounted as a USB drive. For instance:\
 `$ cp /BUILD/DISCO_H747I/GCC_ARM/mbed.bin /media/<USER>/<BOARD_NAME>/`\
