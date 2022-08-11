@@ -21,7 +21,8 @@ $ sudo apt-get install gcc-arm-none-eabi
 Downloaded file would be stored in folder named `Lab1`
 
 ```
-$ mkdir Lab1 && cd "$_"
+$ mkdir Lab1 
+$ cd Lab1
 ```
 ```
 $ git clone https://github.com/marconi1964/tensorflow.git
