@@ -109,8 +109,8 @@ $ cd tensorflow/lite/micro/tools/make/gen/mbed_cortex-m4_default/prj/hello_world
 ```
 $ cp /BUILD/DISCO_H747I/GCC_ARM/mbed.bin /media/<USER>/<BOARD_NAME>/
 ```
-If the volume complains about being full, disconnect and reconnect the board and flash to it again.
 3. Download Tera Term and Connect with STM32 to see the performance.
+
 ![image](https://user-images.githubusercontent.com/61946472/184304013-0ff3c1b5-54e8-48c6-80d4-f906618e994b.png)
 
 
