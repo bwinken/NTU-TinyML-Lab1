@@ -121,6 +121,15 @@ $ cp /BUILD/DISCO_H747I/GCC_ARM/mbed.bin /media/<USER>/<BOARD_NAME>/
 ```
 If the volume complains about being full, disconnect and reconnect the board and flash to it again.
 
+## TODO: Cosine predictor
+1. Find `train_hello_world_model.ipynb` in `~/Lab1/tensorflow/tensorflow/lite/micro/examples/hello_world/train`
+2. modify code to cosine predictor, and replace model.cc
+3. Replace `hello_world_test.cc`provide in our Lab1 Github: 
+4. Run the following command to bulid:
+```
+$ make -f tensorflow/lite/micro/tools/make/Makefile test_hello_world_test
+```
+
 ## (Optional) Control LCD on STM32H747I
 1. Put `BSP` in
     `~/Lab1/tensorflow/tensorflow/lite/micro/tools/make/gen/mbed_cortex-m4_default/prj/hello_world/mbed/`
