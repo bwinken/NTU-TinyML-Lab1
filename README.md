@@ -38,27 +38,22 @@ With this command, some necessary libraries and tools will be downloaded. Then t
 ```
 $ make -f tensorflow/lite/micro/tools/make/Makefile test_hello_world_test
 ```
+![image](https://user-images.githubusercontent.com/61946472/184302778-aa919659-94e0-4ce2-9385-87acc595cee3.png)
 
-<!--
-![](https://i.imgur.com/56qXKtP.png)
--->
+
 
 ## Deploy on STM32H747
+Mbed requires source files to be structured in a certain way. The TensorFlow Lite for Microcontrollers Makefile knows how to do this for us, and can generate a directory suitable for Mbed. The building process should be like this:
 ```
 $ make -f tensorflow/lite/micro/tools/make/Makefile TARGET=mbed OPTIMIZED_KERNEL_DIR=cmsis_nn generate_hello_world_mbed_project
 ```
-
-Mbed requires source files to be structured in a certain way. The TensorFlow Lite for Microcontrollers Makefile knows how to do this for us, and can generate a directory suitable for Mbed. The building process should be like this:
-
 <!--
 ![](https://i.imgur.com/tENEHNF.png)
 -->
 The directory below contains all of the example’s dependencies structured in the correct way for Mbed to be able to build it.
-
 ```
 $ cd tensorflow/lite/micro/tools/make/gen/mbed_cortex-m4_default/prj/hello_world/mbed
 ```
-
 
 
 ### Setting up Mbed
@@ -67,13 +62,11 @@ To get started, use the following command to specify to Mbed that the current di
 ```
 $ mbed config root .
 ```
-    
 Next, instruct Mbed to download the dependencies and prepare to build:
 
 ```
 $ mbed deploy
 ```
-
 <!--
 ### Modify Mbed Configuration
 
@@ -102,9 +95,7 @@ $ cp tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/Core/Include/cmsis_g
 ```
 $ cd tensorflow/lite/micro/tools/make/gen/mbed_cortex-m4_default/prj/hello_world/mbed
 ```
-
 1. To compile, run:
-
     ```
     $ mbed toolchain GCC_ARM
     ```
@@ -114,12 +105,14 @@ $ cd tensorflow/lite/micro/tools/make/gen/mbed_cortex-m4_default/prj/hello_world
     ```
     $ mbed compile -c
     ```
-
 2. This will produce a file named `mbed.bin` in `~/Lab1/tensorflow/tensorflow/lite/micro/tools/make/gen/mbed_cortex-m4_default/prj/hello_world/mbed/BUILD/DISCO_H747I/GCC_ARM/`. To flash it to the board, copy the file to the volume mounted as a USB drive. For instance:\
 ```
 $ cp /BUILD/DISCO_H747I/GCC_ARM/mbed.bin /media/<USER>/<BOARD_NAME>/
 ```
 If the volume complains about being full, disconnect and reconnect the board and flash to it again.
+3. Download Tera Term and Connect with STM32 to see the performance.
+![image](https://user-images.githubusercontent.com/61946472/184304013-0ff3c1b5-54e8-48c6-80d4-f906618e994b.png)
+
 
 ## TODO: Cosine predictor
 1. Find `train_hello_world_model.ipynb` in `~/Lab1/tensorflow/tensorflow/lite/micro/examples/hello_world/train`
@@ -141,4 +134,5 @@ $ make -f tensorflow/lite/micro/tools/make/Makefile test_hello_world_test
      `~/Lab1/tensorflow/tensorflow/lite/micro/tools/make/gen/mbed_cortex-m4_default/prj/hello_world/mbed/tensorflow/lite/micro/examples/hello_world/output_handler.cc`
 
 
+![DEMO (1)](https://user-images.githubusercontent.com/61946472/184305251-4078c8db-0e00-40ec-99aa-c12b2b47af31.gif)
 
