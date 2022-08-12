@@ -122,6 +122,8 @@ $ cp /BUILD/DISCO_H747I/GCC_ARM/mbed.bin /media/<USER>/<BOARD_NAME>/
 ```
 $ make -f tensorflow/lite/micro/tools/make/Makefile test_hello_world_test
 ```
+![image](https://user-images.githubusercontent.com/61946472/184305590-2018128a-3bb1-477e-8605-4c4e1c370fc0.png)
+
 
 ## (Optional) Control LCD on STM32H747I
 1. Put `BSP` in
