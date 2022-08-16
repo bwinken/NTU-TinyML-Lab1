@@ -136,7 +136,7 @@ By default, Mbed will build the project using C++ 98. However, TensorFlow Lite r
 
 ## TODO: Cosine predictor
 1. Find `train_hello_world_model.ipynb` in `~/Lab1/tensorflow/tensorflow/lite/micro/examples/hello_world/train`
-2. modify code to cosine predictor, and replace model.cc
+2. Modify code to cosine predictor, and replace `model.cc`
 3. Replace `hello_world_test.cc`provide in our Lab1 Github: 
 4. Run the following command to bulid:
 
