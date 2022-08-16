@@ -8,37 +8,45 @@ In LAB1, we deploy a pretrained sine regression model onto STM32H747. The input 
 - gcc-arm-none-eabi==9.2.1
 
 1. Install [mbed-cli](https://os.mbed.com/docs/mbed-os/v6.15/build-tools/install-and-set-up.html) by pip :
-```
-$ python3 -m pip install mbed-cli
-```
+
+    ```
+    $ python3 -m pip install mbed-cli
+    ```
 
 2. Install [GCC_ARM](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/downloads) by :
-```
-$ sudo apt-get install gcc-arm-none-eabi
-```
+   
+    ```
+    $ sudo apt-get install gcc-arm-none-eabi
+    ```
 
 ### Git Pack Download
-Downloaded file would be stored in folder named `Lab1`
+1. Create folder named `Lab1`
 
-```
-$ mkdir Lab1 
-$ cd Lab1
-```
-```
-$ git clone https://github.com/marconi1964/tensorflow.git
-```
-```
-$ cd tensorflow
-```
+    ```
+    $ mkdir Lab1 
+    $ cd Lab1
+    ```
+    
+2. Downloaded file from github : 
+
+    ```
+    $ git clone https://github.com/marconi1964/tensorflow.git
+    ```
+    ```
+    $ cd tensorflow
+    ```
 
 
 ## Build on PC
-With this command, some necessary libraries and tools will be downloaded. Then test file along with all of its dependencies will be built. Makefile has instructed the C++ compiler to build the code and create a binary, which it will then run. The result should be like this:
-    
-```
-$ make -f tensorflow/lite/micro/tools/make/Makefile test_hello_world_test
-```
-![image](https://user-images.githubusercontent.com/61946472/184302778-aa919659-94e0-4ce2-9385-87acc595cee3.png)
+1. With this command, some necessary libraries and tools will be downloaded. Then test file along with all of its dependencies will be built. Makefile has instructed the C++ compiler to build the code and create a binary, which it will then run. The result should be like this:
+
+    ```
+    $ make -f tensorflow/lite/micro/tools/make/Makefile test_hello_world_test
+    ```
+<p align="center">
+    <img src=https://user-images.githubusercontent.com/61946472/184302778-aa919659-94e0-4ce2-9385-87acc595cee3.png>
+</p>
+
 
 
 
@@ -77,25 +85,28 @@ By default, Mbed will build the project using C++ 98. However, TensorFlow Lite r
 
 ### Modify header files
 
-Replication arm_math.h and cmsis_gcc.h to correct folder.
+1. Replication `arm_math.h` and `cmsis_gcc.h` to correct folder.
 
-```
-$ cd ~/Lab1/tensorflow/
-```
+    ```
+    $ cd ~/Lab1/tensorflow/
+    ```
 
-```
-$ cp tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/DSP/Include/arm_math.h  tensorflow/lite/micro/tools/make/gen/mbed_cortex m4_default/prj/hello_world/mbed/mbed-os/cmsis/TARGET_CORTEX_M/arm_math.h
-```
-```
-$ cp tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/Core/Include/cmsis_gcc.h  tensorflow/lite/micro/tools/make/gen/mbed_cortex-m4_default/prj/hello_world/mbed/mbed-os/cmsis/TARGET_CORTEX_M/cmsis_gcc.h
-```
+    ```
+    $ cp tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/DSP/Include/arm_math.h  tensorflow/lite/micro/tools/make/gen/mbed_cortex m4_default/prj/hello_world/mbed/mbed-os/cmsis/TARGET_CORTEX_M/arm_math.h
+    ```
+    ```
+    $ cp tensorflow/lite/micro/tools/make/downloads/cmsis/CMSIS/Core/Include/cmsis_gcc.h  tensorflow/lite/micro/tools/make/gen/mbed_cortex-m4_default/prj/hello_world/mbed/mbed-os/cmsis/TARGET_CORTEX_M/cmsis_gcc.h
+    ```
 
 
 ### Compile 
-```
-$ cd tensorflow/lite/micro/tools/make/gen/mbed_cortex-m4_default/prj/hello_world/mbed
-```
-1. To compile, run:
+1. Go back to right folder :
+
+    ```
+    $ cd tensorflow/lite/micro/tools/make/gen/mbed_cortex-m4_default/prj/hello_world/mbed
+    ```
+2. To compile, run:
+
     ```
     $ mbed toolchain GCC_ARM
     ```
@@ -105,31 +116,36 @@ $ cd tensorflow/lite/micro/tools/make/gen/mbed_cortex-m4_default/prj/hello_world
     ```
     $ mbed compile -c
     ```
+    If successful, you will see the following screen :
+    <p align="center">
+        <img src=https://user-images.githubusercontent.com/61946472/184845567-0fec5201-88b3-4b80-9bdd-eb4955c3b444.png>
+    </p>
+
+
+
+3. This will produce a file named `mbed.bin` in `~/Lab1/tensorflow/tensorflow/lite/micro/tools/make/gen/mbed_cortex-m4_default/prj/hello_world/mbed/BUILD/DISCO_H747I/GCC_ARM/`. To flash it to the board, copy the file to the volume mounted as a USB drive. For instance:
+   
+    ```
+    $ cp /BUILD/DISCO_H747I/GCC_ARM/mbed.bin /media/<USER>/<BOARD_NAME>/
+    ```
+    
+4. Download Tera Term and Connect with STM32 to see the performance.
 <p align="center">
-    <img src=https://user-images.githubusercontent.com/61946472/184845567-0fec5201-88b3-4b80-9bdd-eb4955c3b444.png>
+    <img src=https://user-images.githubusercontent.com/61946472/184304013-0ff3c1b5-54e8-48c6-80d4-f906618e994b.png>
 </p>
-
-
-
-2. This will produce a file named `mbed.bin` in `~/Lab1/tensorflow/tensorflow/lite/micro/tools/make/gen/mbed_cortex-m4_default/prj/hello_world/mbed/BUILD/DISCO_H747I/GCC_ARM/`. To flash it to the board, copy the file to the volume mounted as a USB drive. For instance:\
-```
-$ cp /BUILD/DISCO_H747I/GCC_ARM/mbed.bin /media/<USER>/<BOARD_NAME>/
-```
-3. Download Tera Term and Connect with STM32 to see the performance.
-
-![image](https://user-images.githubusercontent.com/61946472/184304013-0ff3c1b5-54e8-48c6-80d4-f906618e994b.png)
-
 
 ## TODO: Cosine predictor
 1. Find `train_hello_world_model.ipynb` in `~/Lab1/tensorflow/tensorflow/lite/micro/examples/hello_world/train`
 2. modify code to cosine predictor, and replace model.cc
 3. Replace `hello_world_test.cc`provide in our Lab1 Github: 
 4. Run the following command to bulid:
-```
-$ make -f tensorflow/lite/micro/tools/make/Makefile test_hello_world_test
-```
-![image](https://user-images.githubusercontent.com/61946472/184305590-2018128a-3bb1-477e-8605-4c4e1c370fc0.png)
 
+    ```
+    $ make -f tensorflow/lite/micro/tools/make/Makefile test_hello_world_test
+    ```
+<p align="center">
+    <img src=https://user-images.githubusercontent.com/61946472/184305590-2018128a-3bb1-477e-8605-4c4e1c370fc0.png>
+</p>
 
 ## (Optional) Control LCD on STM32H747I
 1. Put `BSP` in
