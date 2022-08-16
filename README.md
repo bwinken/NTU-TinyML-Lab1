@@ -157,6 +157,7 @@ By default, Mbed will build the project using C++ 98. However, TensorFlow Lite r
 3. Replace `output_handler.cc` in
      `~/Lab1/tensorflow/tensorflow/lite/micro/tools/make/gen/mbed_cortex-m4_default/prj/hello_world/mbed/tensorflow/lite/micro/examples/hello_world/output_handler.cc`
 
-
-![DEMO (1)](https://user-images.githubusercontent.com/61946472/184305251-4078c8db-0e00-40ec-99aa-c12b2b47af31.gif)
+<p align="center">
+    <img src=https://user-images.githubusercontent.com/61946472/184305251-4078c8db-0e00-40ec-99aa-c12b2b47af31.gif>
+</p>
 
