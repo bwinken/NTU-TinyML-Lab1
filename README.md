@@ -105,6 +105,12 @@ $ cd tensorflow/lite/micro/tools/make/gen/mbed_cortex-m4_default/prj/hello_world
     ```
     $ mbed compile -c
     ```
+<p align="center">
+    <img src=https://user-images.githubusercontent.com/61946472/184845567-0fec5201-88b3-4b80-9bdd-eb4955c3b444.png>
+</p>
+
+
+
 2. This will produce a file named `mbed.bin` in `~/Lab1/tensorflow/tensorflow/lite/micro/tools/make/gen/mbed_cortex-m4_default/prj/hello_world/mbed/BUILD/DISCO_H747I/GCC_ARM/`. To flash it to the board, copy the file to the volume mounted as a USB drive. For instance:\
 ```
 $ cp /BUILD/DISCO_H747I/GCC_ARM/mbed.bin /media/<USER>/<BOARD_NAME>/
