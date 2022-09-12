@@ -147,7 +147,7 @@ By default, Mbed will build the project using C++ 98. However, TensorFlow Lite r
     <img src=https://user-images.githubusercontent.com/61946472/184305590-2018128a-3bb1-477e-8605-4c4e1c370fc0.png>
 </p>
 
-## TODO: Control LCD on STM32H747I
+## TODO [Optional]: Control LCD on STM32H747I
 1. Put `BSP` in
     `~/Lab1/tensorflow/tensorflow/lite/micro/tools/make/gen/mbed_cortex-m4_default/prj/hello_world/mbed/`
     
