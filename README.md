@@ -73,7 +73,7 @@ $ python3 -m mbed config root .
 Next, instruct Mbed to download the dependencies and prepare to build:
 
 ```
-$ python3-m mbed deploy
+$ python3 -m mbed deploy
 ```
 <!--
 ### Modify Mbed Configuration
