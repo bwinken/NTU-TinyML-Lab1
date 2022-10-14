@@ -68,12 +68,12 @@ $ cd tensorflow/lite/micro/tools/make/gen/mbed_cortex-m4_default/prj/hello_world
 To get started, use the following command to specify to Mbed that the current directory is the root of an Mbed project:
 
 ```
-$ mbed config root .
+$ python3 -m mbed config root .
 ```
 Next, instruct Mbed to download the dependencies and prepare to build:
 
 ```
-$ mbed deploy
+$ python3-m mbed deploy
 ```
 <!--
 ### Modify Mbed Configuration
@@ -108,13 +108,13 @@ By default, Mbed will build the project using C++ 98. However, TensorFlow Lite r
 2. To compile, run:
 
     ```
-    $ mbed toolchain GCC_ARM
+    $ python3 -m mbed toolchain GCC_ARM
     ```
     ```
-    $ mbed target DISCO_H747I
+    $ pyhton3 -m mbed target DISCO_H747I
     ```
     ```
-    $ mbed compile -c
+    $ python3 -m mbed compile -c
     ```
     If successful, you will see the following screen :
     <p align="center">
