@@ -120,12 +120,6 @@ TF_LITE_MICRO_TEST(LoadModelAndPerformInference) {
   y_pred = (output->data.int8[0] - output_zero_point) * output_scale;
   TF_LITE_MICRO_EXPECT_NEAR(y_true, y_pred, epsilon);
 
-  x = 5.f;
-  y_true = cos(x);
-  input->data.int8[0] = x / input_scale + input_zero_point;
-  interpreter.Invoke();
-  y_pred = (output->data.int8[0] - output_zero_point) * output_scale;
-  TF_LITE_MICRO_EXPECT_NEAR(y_true, y_pred, epsilon);
 
   TF_LITE_REPORT_ERROR(&micro_error_reporter,"Passed cosine testbench!!!!!!!!!!!!!!!!!!!");
 }
