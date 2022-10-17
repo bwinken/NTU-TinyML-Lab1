@@ -111,7 +111,7 @@ By default, Mbed will build the project using C++ 98. However, TensorFlow Lite r
     $ python3 -m mbed toolchain GCC_ARM
     ```
     ```
-    $ pyhton3 -m mbed target DISCO_H747I
+    $ python3 -m mbed target DISCO_H747I
     ```
     ```
     $ python3 -m mbed compile -c
